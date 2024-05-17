@@ -20,11 +20,13 @@ public class Main {
         ActionListener taskPerformer = new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                Point massPoint = mass.getPoint();
+                mass.accelerate();
+                frame.repaint();
+
                 
             }
         };
-        Timer timer = new Timer(1000, taskPerformer);
+        Timer timer = new Timer(5, taskPerformer);
         timer.start();
 
     }
