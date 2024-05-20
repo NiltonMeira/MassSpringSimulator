@@ -1,20 +1,18 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-
-import javax.naming.InitialContext;
 import javax.swing.JComponent;
 
 public class Mass extends JComponent {
 
-    private int x = 1920;
-    private int y = 1080;
-    private int radius = 50;
+    private int x = 600;
+    private int y = 600;
+    private int radius = 20;
     private Point position = new Point((x/2 - radius), radius);
     private double initialSpeed = 0;
     private double speed;
     private double acceleration = 9.8;
-    private double time = 0.005;
+    private double time = 0.010;
    
 
     @Override
@@ -25,6 +23,7 @@ public class Mass extends JComponent {
        
         g.setColor(new Color(80, 48, 30));
         g.fillOval((int)(position.getX()), (int)(position.getY()), radius, radius);
+        
            
     }   
 
@@ -37,10 +36,9 @@ public class Mass extends JComponent {
     {   
         speed = initialSpeed + acceleration * time;
 
-        if (position.getY() >= 1080-radius)
-        {
+        if (position.getY() >= y - 3*radius && speed >0)
             bounce();
-        }
+        
         else 
             move();
     }
@@ -55,7 +53,6 @@ public class Mass extends JComponent {
 
     public void bounce()
     {
-        initialSpeed = -speed * 0.07f;
-        System.out.println("Cheguei");
+        initialSpeed = -speed * 0.7f;
     }
 }

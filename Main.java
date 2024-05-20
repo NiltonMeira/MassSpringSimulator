@@ -1,10 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.Timer;
-
-import java.awt.Point;
 import java.awt.event.ActionListener;
-
-import javafx.event.ActionEvent;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +8,7 @@ public class Main {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.setSize(1920, 1080);
+        frame.setSize(600, 600);
 
         Mass mass = new Mass();
         frame.add(mass);
@@ -22,11 +18,9 @@ public class Main {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 mass.accelerate();
                 frame.repaint();
-
-                
             }
         };
-        Timer timer = new Timer(5, taskPerformer);
+        Timer timer = new Timer(10, taskPerformer);
         timer.start();
 
     }
