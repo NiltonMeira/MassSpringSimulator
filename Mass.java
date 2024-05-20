@@ -3,29 +3,20 @@ import java.awt.Graphics;
 import java.awt.Point;
 import javax.swing.JComponent;
 
-public class Mass extends JComponent {
+public class Mass  {
 
     private int x = 600;
     private int y = 600;
     private int radius = 20;
-    private Point position = new Point((x/2 - radius), radius);
+    private Point position;
     private double initialSpeed = 0;
     private double speed;
     private double acceleration = 9.8;
     private double time = 0.010;
    
-
-    @Override
-    protected void paintComponent(Graphics g) {
-
-        g.setColor(new Color(233,224, 210));
-        g.fillRect(0, 0, x, y);
-       
-        g.setColor(new Color(80, 48, 30));
-        g.fillOval((int)(position.getX()), (int)(position.getY()), radius, radius);
-        
-           
-    }   
+    public Mass(Point position){
+        this.position = position;
+    }
 
     public Point getPoint()
     {
@@ -45,7 +36,7 @@ public class Mass extends JComponent {
 
     public void move() 
     {
-        Point newPosition = new Point((int)(x/2 - radius), (int)position.getY() + (int)speed);
+        Point newPosition = new Point((int)(position.getX()), (int)position.getY() + (int)speed);
         this.position = newPosition;
         initialSpeed = speed;
        
